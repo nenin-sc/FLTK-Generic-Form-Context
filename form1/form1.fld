@@ -1,0 +1,39 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0308
+header_name {.h}
+code_name {.cpp}
+decl {\#include "clsForm1Context.h"} {private local
+}
+
+Function {winit_form1()} {open
+} {
+  code {static clsForm1Context Form1Context;} {}
+  Fl_Window {} {
+    label {FLTK window}
+    user_data {&Form1Context} user_data_type {clsForm1Context*}
+    callback {v->cbClose();} open
+    xywh {495 237 305 135} type Double align 80
+    code0 {Form1Context.Win(o);} visible
+  } {
+    Fl_Input {} {
+      label {Please enter value:}
+      user_data {&Form1Context}
+      xywh {145 10 150 25}
+      code1 {Form1Context.RegisterWg("intx_test",o);}
+    }
+    Fl_Button {} {
+      label Test
+      user_data {&Form1Context} user_data_type {clsForm1Context*}
+      callback {v->PutInPostBox(1, "Main");} selected
+      xywh {10 100 100 25}
+      code1 {Form1Context.RegisterWg("btn_Test",o);}
+    }
+    Fl_Button {} {
+      label Close
+      user_data {&Form1Context} user_data_type {clsForm1Context*}
+      callback {v->cbClose();}
+      xywh {195 100 100 25}
+      code1 {Form1Context.RegisterWg("btn_Close",o);}
+    }
+  }
+}
