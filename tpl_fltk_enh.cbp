@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="tpl_fltk_enh" />
+		<Option pch_mode="2" />
+		<Option compiler="nixman_gcc_142_64_compiler" />
+		<Option virtualFolders="generic/;form1/;main/" />
+		<Build>
+			<Target title="Debug">
+				<Option output="tpl_fltk_enh_db" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="0" />
+				<Option compiler="nixman_gcc_142_64_compiler" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="form1" />
+					<Add directory="GenContext" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="tpl_fltk_enh" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="nixman_gcc_142_64_compiler" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-s" />
+					<Add directory="form1" />
+					<Add directory="GenContext" />
+				</Compiler>
+				<Linker>
+					<Add option="-static -s" />
+					<Add library="lib_fltk_gcntx05.a" />
+				</Linker>
+			</Target>
+			<Target title="lib">
+				<Option output="_fltk_gcntx05_db" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj/libDebug/" />
+				<Option type="2" />
+				<Option compiler="nixman_gcc_142_64_compiler" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-std=c++11" />
+					<Add option="-ggdb" />
+					<Add option="-Og" />
+					<Add option="-g" />
+					<Add option="-s" />
+				</Compiler>
+			</Target>
+			<Target title="lib- Release">
+				<Option output="_fltk_gcntx05" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj/libRelease/" />
+				<Option type="2" />
+				<Option compiler="nixman_gcc_142_64_compiler" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-s" />
+					<Add option="-march=x86-64-v2" />
+					<Add directory="form1" />
+					<Add directory="GenContext" />
+				</Compiler>
+				<Linker>
+					<Add option="-static -s" />
+					<Add library="./lib_fltk_enh.a" />
+				</Linker>
+			</Target>
+			<Target title="Debug with lib">
+				<Option output="tpl_fltk_enh" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="0" />
+				<Option compiler="nixman_gcc_142_64_compiler" />
+				<Compiler>
+					<Add option="-ggdb" />
+					<Add option="-Og" />
+					<Add option="-g" />
+					<Add directory="form1" />
+					<Add directory="GenContext" />
+				</Compiler>
+				<Linker>
+					<Add library="./lib_fltk_gcntx05_db.a" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-march=core2" />
+			<Add option="-DWIN32" />
+			<Add directory="$(TARGET_COMPILER_DIR)FLTK/include" />
+			<Add directory="$(TARGET_COMPILER_DIR)user/include" />
+		</Compiler>
+		<Linker>
+			<Add library="fltk" />
+			<Add library="ole32" />
+			<Add library="uuid" />
+			<Add library="comctl32" />
+			<Add library="wsock32" />
+			<Add library="comdlg32" />
+			<Add library="advapi32" />
+			<Add library="shell32" />
+			<Add library="oleaut32" />
+			<Add library="m" />
+			<Add library="gdiplus" />
+			<Add library="gdi32" />
+			<Add library="user32" />
+			<Add library="winspool" />
+			<Add library="kernel32" />
+			<Add library="libfmt" />
+			<Add directory="$(TARGET_COMPILER_DIR)FLTK/lib" />
+			<Add directory="$(TARGET_COMPILER_DIR)user/lib" />
+		</Linker>
+		<Unit filename="GenContext/clsGenContext.cpp">
+			<Option virtualFolder="generic/" />
+			<Option target="lib" />
+			<Option target="lib- Release" />
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="GenContext/clsGenContext.h">
+			<Option virtualFolder="generic/" />
+			<Option target="lib" />
+			<Option target="lib- Release" />
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="cbAppContext.cpp">
+			<Option virtualFolder="main/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+			<Option target="Debug with lib" />
+		</Unit>
+		<Unit filename="clsAppContext.cpp">
+			<Option virtualFolder="main/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+			<Option target="Debug with lib" />
+		</Unit>
+		<Unit filename="clsAppContext.h">
+			<Option virtualFolder="main/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+			<Option target="Debug with lib" />
+		</Unit>
+		<Unit filename="form1/cbForm1Context.cpp">
+			<Option virtualFolder="form1/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+			<Option target="Debug with lib" />
+		</Unit>
+		<Unit filename="form1/clsForm1Context.cpp">
+			<Option virtualFolder="form1/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+			<Option target="Debug with lib" />
+		</Unit>
+		<Unit filename="form1/clsForm1Context.h">
+			<Option virtualFolder="form1/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+			<Option target="Debug with lib" />
+		</Unit>
+		<Unit filename="form1/form1.cpp">
+			<Option virtualFolder="form1/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+			<Option target="Debug with lib" />
+		</Unit>
+		<Unit filename="form1/form1.fld">
+			<Option virtualFolder="form1/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+			<Option target="Debug with lib" />
+		</Unit>
+		<Unit filename="form1/form1.h">
+			<Option virtualFolder="form1/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+			<Option target="Debug with lib" />
+		</Unit>
+		<Unit filename="main.cpp">
+			<Option virtualFolder="main/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+			<Option target="Debug with lib" />
+		</Unit>
+		<Unit filename="main.fld">
+			<Option virtualFolder="main/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+			<Option target="Debug with lib" />
+		</Unit>
+		<Unit filename="main.h">
+			<Option virtualFolder="main/" />
+			<Option target="Debug" />
+			<Option target="Release" />
+			<Option target="Debug with lib" />
+		</Unit>
+		<Unit filename="main_ico.RC">
+			<Option compilerVar="WINDRES" />
+			<Option target="Debug" />
+			<Option target="Release" />
+			<Option target="Debug with lib" />
+		</Unit>
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>

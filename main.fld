@@ -1,0 +1,51 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0308
+header_name {.h}
+code_name {.cpp}
+decl {\#include "clsAppContext.h"} {private local
+}
+
+decl {\#include <FL/x.h>} {private global
+}
+
+Function {} {open
+} {
+  code {clsAppContext AppContext;
+Fl::scheme("gtk+");} {}
+  Fl_Window {} {
+    label {FLTK window}
+    user_data {&AppContext} open
+    xywh {387 309 345 135} type Double align 80
+    code0 {AppContext.Win(o);}
+    code1 {AppContext.init_windows();} visible
+  } {
+    Fl_Input {} {
+      label {Test:}
+      user_data {&AppContext}
+      xywh {15 60 150 25} align 5
+      code1 {AppContext.RegisterWg("intx_test",o);}
+    }
+    Fl_Button {} {
+      label Test
+      user_data {&AppContext} user_data_type {clsAppContext*}
+      callback {v->cbTest();}
+      xywh {15 10 100 25}
+      code1 {AppContext.RegisterWg("btn_Test",o);}
+    }
+    Fl_Button {} {
+      label Close
+      user_data {&AppContext} user_data_type {clsAppContext*}
+      callback {v->cbClose();} selected
+      xywh {235 10 100 25}
+      code1 {AppContext.RegisterWg("btn_Close",o);}
+    }
+    Fl_Button {} {
+      label New
+      user_data {&AppContext} user_data_type {clsAppContext*}
+      callback {v->cbNew();}
+      xywh {230 75 100 25}
+      code1 {AppContext.RegisterWg("btn_New",o);}
+    }
+  }
+  code {w->icon((const void *)LoadIcon(fl_display, MAKEINTRESOURCE(501)));} {}
+}
